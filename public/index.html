@@ -2,26 +2,9 @@
 <html ng-app="Codio">
     <head>
         <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">
-        <!--link href="typeahead/style.css" rel="stylesheet"-->
     </head>
     <body ng-controller="TeamCreateCtrl">
 
-		<!--div class="span4 typeahead">
-		    <input type="text" class="filter" ng-model="filter" />
-		    <div class="well" ng-show="toShowList()">
-		        <ul class="nav nav-list">
-		            <li id="item{{ item.id }}" class="{{ getItemClass(item) }}" ng-click="activate(item.id)"
-		                ng-repeat="item in items | typeaheadMatch: { name: filter }">
-		                <span class="thumb">
-		                    {{ insertThumbnailImageIfExists(item) }}
-		                </span>
-		                <a target="_blank" href="{{ item.url }}" class="item-link">
-		                    {{ highlightMatches(item) }}
-		                </a>
-		            </li>
-		        </ul>
-		    </div>
-		</div-->
 
 		<div class="well"><h1>{{ text }}</h1></div>
 
@@ -31,15 +14,8 @@
         <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
         <!-- /external libraries -->
 
-        <!-- typeahead component scripts -->
-        <!--script src="typeahead/typeahead.js"></script>
-        <script src="typeahead/typeaheadData.js"></script>
-        <script src="typeahead/typeaheadMatch.js"></script-->
-        <!-- /typeahead component scripts -->
-
         <!-- app-related scripts -->
         <script src="js/app.js"></script>
-        <!--script src="app/service/parser/podio.js"></script-->
         <!-- /app-related scripts -->
     </body>
 </html>

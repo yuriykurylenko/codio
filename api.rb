@@ -13,7 +13,6 @@ end
 
 get '/' do
 	File.read(File.join('public', 'index.html'))
-	#redirect '/index.html'
 end
 
 get '/orgs' do 
@@ -30,8 +29,6 @@ end
 
 get '/contacts' do
 	podio
-
-	#me = Podio::User.current.id
 	my_contacts = Podio::Contact.all
 
 	my_contacts.to_json	
