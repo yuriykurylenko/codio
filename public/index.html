@@ -5,24 +5,32 @@
     </head>
     <body ng-controller="TeamCreateCtrl">
 
+		<div class="well"><h1>Create a Team!</h1></div>
 
-		<div class="well"><h1>{{ text }}</h1></div>
+		<div style="margin-left:10px">Team name:&nbsp;&nbsp;<input type="text" ng-model="name" /></div>
 
-	    <div class="well">
+		<legend style="margin-left:10px">Select members</legend>
+	    <div>
 	        <ul class="nav nav-list">
-	            <li id="contact{{ contact.id }}" ng-repeat="contact in contacts">
-	                <span>
-	                    <img src="{{ contact.image.link }}" style="width: 100px" />
-	                </span>
-	                <span>
-	                	{{ contact.name }}
-	                </span>
-	                <a target="_blank" href="{{ contact.link }}">
-	                    {{ contact.link }}
-	                </a>
+	            <li id="contact{{ contact.id }}" ng-repeat="contact in contacts" style="float:left; cursor:pointer" ng-click="activate(contact.id)">
+	            	<div class="alert" style="width:250px; height:180px; margin-right:10px;">
+		                <h4>{{ contact.name }}</h4>
+		                <span>
+		                    <div style="max-height:100px; width:100px; overflow:hidden; margin-bottom: 10px">
+		                    	<img src="{{ contact.image.link }}" style="width: 100px" />
+		                    </div>
+		                </span>
+		                <span>
+				            <div><a target="_blank" href="{{ contact.link }}">{{ contact.link }}</a></div>
+				            <div>{{ contact.mail[0] }}</div>
+				        </span>
+				    </div>
 	            </li>
 	        </ul>
 	    </div>		
+
+	    <div style="clear:both"></div>
+	    <span class="btn btn-success btn-large" style="float:right; margin-right:15px" ng-click="create()">Create a Team</span>
 
         <!-- external libraries from CDN -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
