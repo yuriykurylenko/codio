@@ -19,11 +19,6 @@ get '/orgs' do
 	podio
 	my_orgs = Podio::Organization.find_all
 
-	out = []
-	my_orgs.each do |org|
-	  out << { name: org.name, url: org.url }
-	end
-
 	my_orgs.to_json
 end
 
@@ -39,4 +34,17 @@ get '/me' do
 	me = Podio::User.current
 
 	me.to_json
+end
+
+post '/workspace' do
+	podio
+
+	json_data = JSON.parse request.body.read
+
+	result = Podio::Space.create( 
+		:name => json_data["name"], 
+		:org_id => json_data["org_id"]
+	)
+
+	result.to_json
 end

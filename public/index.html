@@ -5,9 +5,15 @@
     </head>
     <body ng-controller="TeamCreateCtrl">
 
-		<div class="well"><h1>Create a Team!</h1></div>
+		<div class="well"><h1>Create a Workspace!</h1></div>
 
-		<div style="margin-left:10px">Team name:&nbsp;&nbsp;<input type="text" ng-model="name" /></div>
+		<div style="margin-left:10px">Workspace name:&nbsp;&nbsp;<input type="text" ng-model="name" /></div>
+		<div style="margin-left:10px">
+			Organization:&nbsp;&nbsp;
+			<select name="organization" ng-model="organization">
+				<option ng-repeat="org in orgs" value="{{ org.id }}">{{ org.name }}</option>
+			</select>
+		</div>
 
 		<legend style="margin-left:10px">Select members</legend>
 	    <div>
@@ -30,7 +36,7 @@
 	    </div>		
 
 	    <div style="clear:both"></div>
-	    <span class="btn btn-success btn-large" style="float:right; margin-right:15px" ng-click="create()">Create a Team</span>
+	    <span class="btn btn-success btn-large" style="float:right; margin-right:15px" ng-click="create()">Create</span>
 
         <!-- external libraries from CDN -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
