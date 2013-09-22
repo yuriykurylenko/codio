@@ -8,7 +8,6 @@ codioApp.service('contactsService', ['$http', function($http) {
                 throw new Error('contactsService.get(): first parameter should be a Function!');
             }
 
-            
             $http(
                 { method: 'GET', url: '/contacts' }
             ).success(function(data) {
