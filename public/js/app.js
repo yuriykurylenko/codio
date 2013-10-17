@@ -58,7 +58,8 @@ codioApp.service('wspService', ['$http', function($http) {
 }]);
 
 codioApp.controller('TeamCreateCtrl', 
-['$scope', 'contactsService', 'orgsService', 'wspService', function($scope, contactsService, orgsService, wspService) {
+['$scope', 'contactsService', 'orgsService', 'wspService', 
+ function($scope, contactsService, orgsService, wspService) {
     $scope.team = [];
 
     contactsService.get(function(data) {
