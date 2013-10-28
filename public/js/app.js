@@ -19,6 +19,28 @@ codioApp.service('contactsService', ['$http', function($http) {
     }
 }]);
 
+var restService = function(name, baseUrl, app) {
+    return /* (???) */ app.service( ('rest' + name), ['$http', function($http) {
+        return {
+            get: function(callback) {
+                if (!_.isFunction(callback)) {
+                    throw new Error('rest.get(): first parameter should be a Function!');
+                }
+
+                
+                $http(
+                    { method: 'GET', url: baseUrl }
+                ).success(function(data) {
+                    callback(data);
+                }).error(function(html, statusCode) {
+                    throw new Error('"' + baseUrl + '" responded with status code ' + statusCode);
+                });
+            }
+            /* post, put, delete */
+        }
+    }]);
+}
+
 // TODO: No code duplication!
 codioApp.service('orgsService', ['$http', function($http) {
     return {
